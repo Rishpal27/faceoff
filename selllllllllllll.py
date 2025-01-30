@@ -3,7 +3,7 @@ from firebase_admin import credentials
 from firebase_admin import db
 from collections import OrderedDict
 import numpy as np
-cred = credentials.Certificate("C:\\Users\\risha\\PycharmProjects\\flaskProject\\amgaaa-999fd-firebase-adminsdk-dyz3v-5ff3f65509.json")
+cred = credentials.Certificate("amgaaa-999fd-firebase-adminsdk-dyz3v-5ff3f65509.json")
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://amgaaa-999fd-default-rtdb.asia-southeast1.firebasedatabase.app'})
 ref=db.reference(path='Celebrities')
