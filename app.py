@@ -4,8 +4,6 @@ from flask_cors import CORS
 from selllllllllllll import *
 from ELO import *
 import time
-print("My greatest creation is you....")
-time.sleep(2)
 app = Flask(__name__)
 CORS(app)
 @app.route('/api/random',methods=['GET'])
@@ -20,9 +18,9 @@ def random_name():
     query=ref.order_by_child('name').equal_to(n)
     query1=ref.order_by_child('name').equal_to(m)
     for i in query.get().values():
-        print(type(i))
+        type(i)
     for j in query1.get().values():
-        print(type(i))
+        type(i)
     global query_elo
     query_elo=i['elo']
     global query1_elo
@@ -43,6 +41,11 @@ def rating():
     print(selected_name)
     print(player_names.index(selected_name))
     print(n,m)
+    order=ref.order_by_child('elo').get()
+    order_name=[]
+    for i in order:
+        order_name.append(i['name'])
+    print(order_name[::-1])
     if selected_name==n:
         ratings=elo(query_elo,query1_elo)
         print(ratings)
