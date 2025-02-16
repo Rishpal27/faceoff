@@ -69,6 +69,16 @@ def rating():
     else:
         print("Error dumbass")
     return jsonify({"received": data})
+@app.route('/api/leaderboard',methods=['POST'])
+def leaderboard():
+    data = request.json
+    order=ref.order_by_child('elo').get()
+    order=order[-1:-11:-1]
+    #order_name=[]
+    #for i in order:
+        #order_name.append(i['name'])
+    return jsonify({"name":order.name,"elo":order.elo,"image_path":order.image_path})
+
 
 if __name__ == '__main__':
     app.run(debug=True)
