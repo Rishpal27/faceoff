@@ -73,11 +73,15 @@ def rating():
 def leaderboard():
     order=ref.order_by_child('elo').get()
     order=order[-1:-11:-1]
-    #order_name=[]
-    #for i in order:
-        #order_name.append(i['name'])
-    return jsonify({"name":order.name,"elo":order.elo,"image_path":order.image_path})
-
+    l_name=[]
+    l_elo=[]
+    l_img=[]
+    for i in order:
+        l_name.append(i['name'])
+        l_elo.append(i['elo'])
+        l_img.append(i['image_path'])
+    final_order={"name":l_name,"elo":l_elo,"image_path":l_img}
+    return jsonify({"name":final_order['name'],"elo":final_order['elo'],"image_path":final_order["img"]})
 
 if __name__ == '__main__':
     app.run(debug=True)
