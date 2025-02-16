@@ -69,9 +69,8 @@ def rating():
     else:
         print("Error dumbass")
     return jsonify({"received": data})
-@app.route('/api/leaderboard',methods=['POST'])
+@app.route('/api/leaderboard',methods=['GET'])
 def leaderboard():
-    data = request.json
     order=ref.order_by_child('elo').get()
     order=order[-1:-11:-1]
     #order_name=[]
