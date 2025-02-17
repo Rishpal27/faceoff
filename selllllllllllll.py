@@ -12,8 +12,8 @@ firebase_credentials_path_64 = os.getenv('FIREBASE_CREDENTIALS_PATH')
 firebase_credentials_path=json.loads(base64.b64decode(firebase_credentials_path_64))
 cred = credentials.Certificate(firebase_credentials_path)
 firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://amgaaa-999fd-default-rtdb.asia-southeast1.firebasedatabase.app'})
-ref=db.reference(path='Celebrities')
+    'databaseURL': 'https://amgaaa-999fd-default-rtdb.asia-southeast1.firebasedatabase.app/contestant'})
+ref=db.reference(path='contestant')
 data=ref.get()
 player_names = [entry.get('name') for entry in data]
 rating=[entry.get('elo') for entry in data]
