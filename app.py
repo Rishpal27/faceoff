@@ -84,6 +84,9 @@ def leaderboard():
     return jsonify({"name":final_order['name'],"elo":final_order['elo'],"image_path":final_order["image_path"]})
 @app.route('/api/health')
 def health_check():
+    a=0
+    for i in range(1,10000000000000000000000):
+       a+=i 
     return "OK", 200
 
 if __name__ == '__main__':
