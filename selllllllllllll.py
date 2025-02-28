@@ -13,7 +13,7 @@ firebase_credentials_path=json.loads(base64.b64decode(firebase_credentials_path_
 cred = credentials.Certificate(firebase_credentials_path)
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://amgaaa-999fd-default-rtdb.asia-southeast1.firebasedatabase.app'})
-ref=db.reference(path='m_contestant')
+ref=db.reference(path='contestant')
 data=ref.get()
 player_names = [entry.get('name') for entry in data]
 rating=[entry.get('elo') for entry in data]
@@ -31,7 +31,7 @@ def name_details(a,b):
     query1_img=j['image_path']
     return query_elo,query1_elo,query_img,query1_img
 def update_rating(id,new_rating):
-    celeb=db.reference(path=f'm_contestant/{id}')
+    celeb=db.reference(path=f'contestant/{id}')
     celeb.update({
         "elo":new_rating
     })
