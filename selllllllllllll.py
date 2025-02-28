@@ -31,7 +31,7 @@ def name_details(a,b):
     query1_img=j['image_path']
     return query_elo,query1_elo,query_img,query1_img
 def update_rating(id,new_rating):
-    celeb=db.reference(path=f'contestant/{id}')
+    celeb=db.reference(path=f'https://amgaaa-999fd-default-rtdb.asia-southeast1.firebasedatabase.app/contestant/{id}')
     celeb.update({
         "elo":new_rating
     })
