@@ -53,6 +53,8 @@ def rating():
         winner_rating=ratings[1]
         loser_id=player_names.index(m)
         loser_rating=ratings[0]
+        print(winner_id)
+        print(loser_id)
         update_rating(winner_id,winner_rating)
         update_rating(loser_id,loser_rating)
 
