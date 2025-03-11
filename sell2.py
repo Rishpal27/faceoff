@@ -8,11 +8,6 @@ import base64
 import json
 load_dotenv()
 import os
-firebase_credentials_path_64 = os.getenv('FIREBASE_CREDENTIALS_PATH')
-firebase_credentials_path=json.loads(base64.b64decode(firebase_credentials_path_64))
-cred = credentials.Certificate(firebase_credentials_path)
-firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://amgaaa-999fd-default-rtdb.asia-southeast1.firebasedatabase.app/contestant'})
 ref1=db.reference(path='m_contestant')
 data=ref1.get()
 player_names_m = [entry.get('name') for entry in data]
