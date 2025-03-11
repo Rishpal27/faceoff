@@ -42,9 +42,9 @@ def random_name_m():
     n=l[0]
     global m
     m=l[1]
-    name_details(n,m)
-    query=ref.order_by_child('name').equal_to(n)
-    query1=ref.order_by_child('name').equal_to(m)
+    name_details_m(n,m)
+    query=ref1.order_by_child('name').equal_to(n)
+    query1=ref1.order_by_child('name').equal_to(m)
     for i in query.get().values():
         type(i)
     for j in query1.get().values():
