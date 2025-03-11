@@ -5,6 +5,7 @@ from selllllllllllll import *
 from ELO import *
 from sell2 import *
 import time
+global final_players
 app = Flask(__name__)
 CORS(app)
 @app.route('/api/random',methods=['GET'])
@@ -67,7 +68,6 @@ def rating():
     data = request.json
     selected_name=data['s_name']
     print("The Chosen Candidates are: ",n,m)
-    global final_players
     if n and m in player_names:
         final_players=player_names_m
     else:
@@ -125,6 +125,7 @@ def rating():
 
 @app.route('/api/leaderboard',methods=['GET'])
 def leaderboard():
+    print(final_players)
     if player_names==final_players:
         order=ref.order_by_child('elo').get()
     else:
