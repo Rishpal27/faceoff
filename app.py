@@ -70,8 +70,10 @@ def rating():
     global final_players
     if n and m in player_names:
         final_players=player_names_m
+        print(final_players)
     else:
         final_players=player_names_m
+        print(final_players)
     print('The winner is: ',selected_name)
     print(final_players.index(selected_name))
     if final_players==player_names:
