@@ -69,7 +69,7 @@ def rating():
     print("The Chosen Candidates are: ",n,m)
     global final_players
     if n and m in player_names:
-        final_players=player_names_m
+        final_players=player_names
         print(final_players)
     else:
         final_players=player_names_m
