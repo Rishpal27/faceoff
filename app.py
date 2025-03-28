@@ -128,10 +128,7 @@ def rating():
 @app.route('/api/leaderboard',methods=['GET'])
 def leaderboard():
     print(final_players)
-    if player_names==final_players:
-        order=ref.order_by_child('elo').get()
-    else:
-        order=ref1.order_by_child('elo').get()
+    order=ref.order_by_child('elo').get()
     order=order[-1:-11:-1]
     l_name=[]
     l_elo=[]
@@ -142,6 +139,18 @@ def leaderboard():
         l_img.append(i['image_path'])
     final_order={"name":l_name,"elo":l_elo,"image_path":l_img}
     return jsonify({"name":final_order['name'],"elo":final_order['elo'],"image_path":final_order["image_path"]})
+@app.route('/api/leaderboard',methods=['GET'])
+def leaderboardm():
+    order=ref1.order_by_child('elo').get()
+    order=order[-1:-11:-1]
+    l_name=[]
+    l_elo=[]
+    l_img=[]
+    for i in order:
+        l_name.append(i['name'])
+        l_elo.append(i['elo'])
+        l_img.append(i['image_path'])
+    final_order={"name":l_name,"elo":l_elo,"image_path":l_img}
 @app.route('/api/health')
 def health_check():
     return "OK", 200
