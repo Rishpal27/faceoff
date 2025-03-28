@@ -127,7 +127,6 @@ def rating():
 
 @app.route('/api/leaderboard',methods=['GET'])
 def leaderboard():
-    print(final_players)
     order=ref.order_by_child('elo').get()
     order=order[-1:-11:-1]
     l_name=[]
