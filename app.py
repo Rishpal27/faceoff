@@ -149,7 +149,7 @@ def leaderboardm():
         l_name.append(i['name'])
         l_elo.append(i['elo'])
         l_img.append(i['image_path'])
-    final_order={"name":l_name,"elo":l_elo,"image_path":l_img})
+    final_order={"name":l_name,"elo":l_elo,"image_path":l_img}
 @app.route('/api/health')
 def health_check():
     return "OK", 200
