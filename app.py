@@ -140,12 +140,12 @@ def leaderboard():
     return jsonify({"name":final_order['name'],"elo":final_order['elo'],"image_path":final_order["image_path"]})
 @app.route('/api/leaderboardm',methods=['GET'])
 def leaderboardm():
-    order=ref1.order_by_child('elo').get()
-    order=order[-1:-11:-1]
+    order1=ref1.order_by_child('elo').get()
+    order1=order1[-1:-11:-1]
     l_name=[]
     l_elo=[]
     l_img=[]
-    for i in order:
+    for i in order1:
         l_name.append(i['name'])
         l_elo.append(i['elo'])
         l_img.append(i['image_path'])
