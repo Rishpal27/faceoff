@@ -150,6 +150,7 @@ def leaderboardm():
         l_elo.append(i['elo'])
         l_img.append(i['image_path'])
     final_order={"name":l_name,"elo":l_elo,"image_path":l_img}
+    return jsonify({"name":final_order['name'],"elo":final_order['elo'],"image_path":final_order["image_path"]})
 @app.route('/api/health')
 def health_check():
     return "OK", 200
